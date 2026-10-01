@@ -1,91 +1,223 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#082f78">
-  <title>LuzSolar Brasil • Gestão de Faturas</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#082969" />
+  <title>Luz Solar Brasil | Energia limpa e economia de verdade</title>
+  <meta name="description" content="Energia solar para residências, empresas e propriedades rurais. Solicite uma análise gratuita com a Luz Solar Brasil." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<aside class="side">
-  <div class="brand"><img src="logo-luzsolar-brasil.png" alt="Energia Solar LuzSolar Brasil"></div>
-  <nav>
-    <button class="nav active" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></button>
-    <button class="nav" data-page="clientes"><span class="nav-icon">♙</span><span>Clientes</span></button>
-    <button class="nav" data-page="faturas"><span class="nav-icon">▤</span><span>Faturas</span></button>
-    <button class="nav" data-page="importar"><span class="nav-icon">⇧</span><span>Importar faturas</span></button>
-    <button class="nav" data-page="creditos"><span class="nav-icon">☀</span><span>Usinas e créditos</span></button>
-    <button class="nav" data-page="automacao"><span class="nav-icon">⚡</span><span>Automação</span></button>
-    <button class="nav" data-page="config"><span class="nav-icon">⚙</span><span>Configurações</span></button>
-  </nav>
-  <div class="promo-box"><img src="promo-luzsolar-brasil.png" alt="Financie energia solar LuzSolar Brasil"></div>
-  <div class="company-box"><b>LuzSolar Brasil</b><small>Energia que gera economia!</small><strong>☎ 75 9 8305-6912</strong><span>◉ ◉ ◉ &nbsp; luzsolarbrasilofc</span></div>
-</aside>
-
-<main>
-  <header>
-    <div class="header-copy"><p class="eyebrow">LUZSOLAR BRASIL • GESTÃO DE FATURAS</p><h1 id="title">Dashboard</h1><small>Controle financeiro, clientes e cobranças em um só lugar.</small></div>
-    <div class="header-actions"><button class="icon-btn" title="Notificações">♧<i>3</i></button><div class="admin"><span>LS</span><div><b>Administrador</b><small>LuzSolar Brasil</small></div></div><button class="btn primary" onclick="go('importar')">＋ Nova fatura</button></div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#inicio" aria-label="Luz Solar Brasil">
+        <img src="assets/logo-luz-solar-brasil.png" alt="Luz Solar Brasil" />
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#empresa">Quem somos</a>
+      </nav>
+      <a class="btn btn-small" href="#orcamento">Simular economia</a>
+      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </div>
   </header>
 
-  <section id="dashboard" class="page active">
-    <div class="hero-stats">
-      <article class="metric metric-blue"><div><small>Faturas em aberto</small><strong id="sInvoices">0</strong><span id="sOpenAmount">R$ 0,00</span></div><div class="metric-icon">▤</div></article>
-      <article class="metric metric-yellow"><div><small>Faturas recebidas</small><strong id="sPaidCount">0</strong><span id="sPaid">R$ 0,00</span></div><div class="metric-icon">✓</div></article>
-      <article class="metric"><div><small>Valor a receber</small><strong id="sReceivable">R$ 0,00</strong><span>Total em aberto</span></div><div class="metric-icon blue-circle">$</div></article>
-      <article class="metric"><div><small>Lucro total</small><strong id="sProfit">R$ 0,00</strong><span>Recebido + em aberto</span></div><div class="metric-icon yellow-circle">↗</div></article>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">☀ ENERGIA LIMPA, RENOVÁVEL E INTELIGENTE</span>
+          <h1>Transforme sua conta de luz em <span>economia para o futuro.</span></h1>
+          <p>Projetos de energia solar pensados para reduzir custos, gerar autonomia e entregar segurança do projeto à ativação.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#orcamento">Quero minha análise gratuita</a>
+            <a class="btn btn-outline" href="https://wa.me/5575983056912" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          </div>
+          <div class="proof-row">
+            <div><strong>5 anos</strong><span>de história</span></div>
+            <div><strong>2.000+</strong><span>clientes atendidos</span></div>
+            <div><strong>Brasil</strong><span>atuação em expansão</span></div>
+          </div>
+        </div>
+
+        <aside class="lead-card reveal" id="orcamento">
+          <div class="lead-head">
+            <span class="mini-badge">ANÁLISE SEM COMPROMISSO</span>
+            <h2>Descubra quanto você pode economizar</h2>
+            <p>Preencha seus dados. Nossa equipe entra em contato para entender seu consumo e indicar a melhor solução.</p>
+          </div>
+          <form id="leadForm">
+            <label>Nome completo*
+              <input type="text" name="nome" required placeholder="Seu nome" autocomplete="name" />
+            </label>
+            <div class="form-row">
+              <label>WhatsApp*
+                <input type="tel" name="whatsapp" required placeholder="(75) 99999-9999" autocomplete="tel" inputmode="tel" />
+              </label>
+              <label>Cidade*
+                <input type="text" name="cidade" required placeholder="Sua cidade" />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Conta de luz média (R$)*
+                <input type="number" name="conta" required min="50" step="10" placeholder="Ex.: 450" />
+              </label>
+              <label>Perfil*
+                <select name="perfil" required>
+                  <option value="">Selecione</option>
+                  <option>Residencial</option>
+                  <option>Comercial</option>
+                  <option>Rural</option>
+                  <option>Industrial</option>
+                </select>
+              </label>
+            </div>
+            <label>Tipo de imóvel
+              <select name="imovel">
+                <option>Casa</option>
+                <option>Empresa / Loja</option>
+                <option>Galpão</option>
+                <option>Propriedade rural</option>
+                <option>Outro</option>
+              </select>
+            </label>
+            <button class="btn btn-full" type="submit">Receber minha simulação →</button>
+            <small>Ao enviar, você concorda em receber contato da Luz Solar Brasil para atendimento da sua solicitação.</small>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <span>✓ Atendimento próximo</span>
+        <span>✓ Projeto personalizado</span>
+        <span>✓ Equipe técnica especializada</span>
+        <span>✓ Acompanhamento do início ao fim</span>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="kicker">POR QUE ENERGIA SOLAR?</span>
+          <h2>Mais controle sobre seus gastos. Mais energia para crescer.</h2>
+          <p>Uma solução que combina economia, sustentabilidade e autonomia para sua casa ou negócio.</p>
+        </div>
+        <div class="cards-4">
+          <article class="feature reveal"><div class="icon">↘</div><h3>Redução de custos</h3><p>Diminua a dependência da energia convencional e transforme uma despesa recorrente em investimento.</p></article>
+          <article class="feature reveal"><div class="icon">☀</div><h3>Energia renovável</h3><p>Produza energia limpa a partir do sol e contribua para um futuro mais sustentável.</p></article>
+          <article class="feature reveal"><div class="icon">⌂</div><h3>Valorização do imóvel</h3><p>Um sistema fotovoltaico agrega tecnologia, eficiência e valor ao seu patrimônio.</p></article>
+          <article class="feature reveal"><div class="icon">✓</div><h3>Projeto completo</h3><p>Da análise à instalação e acompanhamento, você conta com uma equipe responsável por cada etapa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-blue" id="como-funciona">
+      <div class="container">
+        <div class="section-title light reveal">
+          <span class="kicker yellow">SEM COMPLICAÇÃO</span>
+          <h2>Seu projeto solar em 6 passos</h2>
+          <p>Um processo claro para você saber exatamente o que acontece em cada fase.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal"><span>01</span><h3>Análise do consumo</h3><p>Avaliamos sua conta de energia, perfil de consumo e características do local.</p></article>
+          <article class="step reveal"><span>02</span><h3>Projeto personalizado</h3><p>Dimensionamos o sistema ideal para sua necessidade e objetivo de economia.</p></article>
+          <article class="step reveal"><span>03</span><h3>Proposta e condições</h3><p>Apresentamos investimento, projeções e possibilidades de pagamento.</p></article>
+          <article class="step reveal"><span>04</span><h3>Instalação</h3><p>Nossa equipe executa a instalação seguindo padrões técnicos e de segurança.</p></article>
+          <article class="step reveal"><span>05</span><h3>Regularização</h3><p>Cuidamos das etapas documentais e técnicas necessárias junto à distribuidora.</p></article>
+          <article class="step reveal"><span>06</span><h3>Ativação e suporte</h3><p>Seu sistema começa a gerar energia e você segue acompanhado pela nossa equipe.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projetos">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="kicker">PROJETOS REAIS</span>
+          <h2>Energia solar acontecendo na prática</h2>
+          <p>Registros de instalações e operações apresentados nos materiais institucionais da Luz Solar Brasil.</p>
+        </div>
+        <div class="project-grid">
+          <figure class="project-card tall reveal"><img src="assets/project-7.jpg" alt="Projeto de energia solar" loading="lazy"><figcaption>Instalação fotovoltaica</figcaption></figure>
+          <figure class="project-card reveal"><img src="assets/project-8.jpg" alt="Painéis solares instalados" loading="lazy"><figcaption>Sistema em operação</figcaption></figure>
+          <figure class="project-card reveal"><img src="assets/project-9.jpg" alt="Equipe em projeto solar" loading="lazy"><figcaption>Acompanhamento próximo</figcaption></figure>
+          <figure class="project-card reveal"><img src="assets/project-10.jpg" alt="Equipamento de energia solar" loading="lazy"><figcaption>Tecnologia e qualidade</figcaption></figure>
+          <figure class="project-card reveal"><img src="assets/project-11.jpg" alt="Usina solar" loading="lazy"><figcaption>Energia para diferentes perfis</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="empresa">
+      <div class="container about-grid">
+        <div class="about-image reveal"><img src="assets/page17.jpg" alt="Painéis solares da Luz Solar Brasil" loading="lazy"></div>
+        <div class="about-copy reveal">
+          <span class="kicker">QUEM SOMOS</span>
+          <h2>Uma história que começou em Santaluz e ganhou novos horizontes.</h2>
+          <p>A Luz Solar Brasil nasceu com o propósito de transformar vidas por meio da energia solar. A marca destaca fé, ética, excelência, transparência e responsabilidade como pilares da sua cultura.</p>
+          <p>Hoje, a empresa apresenta uma trajetória de crescimento, com milhares de clientes atendidos e foco em entregar mais do que tecnologia: autonomia, cuidado e resultados.</p>
+          <div class="values">
+            <span>Resultado</span><span>Integridade</span><span>Gratidão</span><span>Velocidade</span><span>Intensidade</span>
+          </div>
+          <a href="#orcamento" class="text-link">Quero fazer parte dessa transformação →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="client-platform-section" id="gestao-usinas">
+      <div class="container client-platform-box reveal">
+        <div class="client-platform-copy">
+          <span class="kicker yellow">EXCLUSIVO PARA CLIENTES LUZ SOLAR BRASIL</span>
+          <h2>Sua usina na palma da mão.</h2>
+          <p>Como uma cortesia da Luz Solar Brasil, clientes com usina podem acessar uma plataforma completa para administrar suas usinas, gerar faturas de clientes, acompanhar créditos de energia e organizar toda a gestão financeira em um só lugar.</p>
+          <div class="client-platform-features">
+            <span>☀ Gestão de usinas</span>
+            <span>▤ Geração de faturas</span>
+            <span>⚡ Controle de créditos</span>
+            <span>↗ Gestão financeira</span>
+          </div>
+          <a class="btn client-platform-btn" href="gestao-usinas/index.html" aria-label="Abrir plataforma de gestão de usinas">Administrar usinas →</a>
+        </div>
+        <div class="client-platform-visual" aria-hidden="true">
+          <div class="platform-icon">☀</div>
+          <strong>Portal do Cliente</strong>
+          <span>Controle • Créditos • Faturas • Financeiro</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-box reveal">
+        <div>
+          <span class="kicker yellow">PRONTO PARA COMEÇAR?</span>
+          <h2>Seu telhado pode começar a trabalhar a favor da sua economia.</h2>
+          <p>Solicite uma análise e descubra uma solução dimensionada para o seu consumo.</p>
+        </div>
+        <a class="btn btn-dark" href="#orcamento">Solicitar orçamento</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand"><img src="assets/logo-luz-solar-brasil.png" alt="Luz Solar Brasil"><p>Energia limpa e renovável.<br>O futuro ao seu alcance.</p></div>
+      <div><strong>Contato</strong><a href="tel:+5575983056912">(75) 98305-6912</a><a href="https://wa.me/5575983056912">WhatsApp</a></div>
+      <div><strong>Redes sociais</strong><a href="#">@luzsolarbrasilofc</a><span>Instagram • Facebook</span></div>
+      <div><strong>Navegação</strong><a href="#beneficios">Benefícios</a><a href="#como-funciona">Como funciona</a><a href="#empresa">Quem somos</a></div>
     </div>
+    <div class="container footer-bottom">© <span id="year"></span> Luz Solar Brasil. Todos os direitos reservados.</div>
+  </footer>
 
-    <div class="filterbar">
-      <div class="period-chip">◫ <span id="currentPeriod">Período atual</span></div>
-      <select id="dashClientFilter"><option>Todos os clientes</option></select>
-      <select id="dashStatusFilter"><option>Status</option><option>Em aberto</option><option>Recebidas</option></select>
-      <div class="searchbox"><input id="dashSearch" placeholder="Buscar fatura, cliente ou unidade..."><button>⌕</button></div>
-      <button class="btn ghost" onclick="go('faturas')">Ver todas</button>
-    </div>
-
-    <article class="card dashboard-table">
-      <div class="card-head"><div><p class="eyebrow">MOVIMENTAÇÃO</p><h2>Faturas recentes</h2></div><button class="link" onclick="go('faturas')">Ver todas →</button></div>
-      <div id="recent" class="recent-table"></div>
-    </article>
-
-    <div class="dashboard-bottom">
-      <article class="card summary-card"><p class="eyebrow">RESUMO DO MÊS</p><h2 id="summaryPeriod">Resumo financeiro</h2><div class="summary-lines"><div><span>Clientes ativos</span><b id="sClients">0</b></div><div><span>Taxas Coelba</span><b id="sCoelbaFees">R$ 0,00</b></div><div><span>Outros 50% da taxa</span><b id="sOtherShare">R$ 0,00</b></div><div><span>Para revisar</span><b id="sReview">0</b></div></div></article>
-      <article class="card status-card"><p class="eyebrow">STATUS</p><h2>Faturas por status</h2><div class="status-visual"><div id="statusDonut" class="donut"><span id="statusTotal">0</span></div><div class="legend"><div><i class="yellow-dot"></i>Em aberto <b id="legendPending">0</b></div><div><i class="blue-dot"></i>Recebidas <b id="legendPaid">0</b></div><div><i class="red-dot"></i>Revisar <b id="legendReview">0</b></div></div></div></article>
-      <article class="card chart-card"><p class="eyebrow">DESEMPENHO</p><h2>Lucro nas últimas faturas</h2><div id="profitBars" class="bars"></div></article>
-    </div>
-  </section>
-
-  <section id="importar" class="page">
-    <div class="section-title"><div><p class="eyebrow">LEITURA AUTOMÁTICA</p><h2>Importar faturas Neoenergia</h2></div><span class="section-badge">PDF</span></div>
-    <div class="upload-layout"><article class="card upload-card"><h2>Envie a conta da Neoenergia</h2><p class="muted">Solte um ou vários PDFs aqui. O sistema identifica cliente, referência, leituras, TUSD, TE, vencimento e total.</p><label id="drop" class="drop"><input id="pdf" type="file" accept="application/pdf" multiple><div class="upload-icon">⇧</div><b>Arraste PDFs ou clique aqui</b><span>Seleção múltipla habilitada • até 15 MB por arquivo</span></label><div id="uploadProgress" class="progress hidden"><div></div></div></article><article class="card"><p class="eyebrow">CONFERÊNCIA</p><h2>Dados encontrados</h2><div id="preview" class="empty">Envie uma fatura para começar.</div></article></div>
-  </section>
-
-  <section id="clientes" class="page">
-    <div class="toolbar"><div class="searchbox wide-search"><input id="clientSearch" placeholder="Buscar cliente, instalação ou código..."><button>⌕</button></div><button class="btn primary" onclick="openClient()">＋ Novo cliente</button></div>
-    <article class="card tablewrap"><div class="card-head"><div><p class="eyebrow">CARTEIRA</p><h2>Clientes LuzSolar Brasil</h2></div></div><table><thead><tr><th>Cliente</th><th>Instalação</th><th>Cód. cliente</th><th>Desconto</th><th>% da conta</th><th>Ações</th></tr></thead><tbody id="clientsBody"></tbody></table></article>
-  </section>
-
-  <section id="faturas" class="page">
-    <div class="toolbar"><select id="status"><option value="all">Todas as faturas</option><option value="pending">Em aberto</option><option value="paid">Recebidas</option><option value="review">Revisar</option></select><button class="btn primary" onclick="go('importar')">＋ Importar PDF</button></div>
-    <article class="card tablewrap"><div class="card-head"><div><p class="eyebrow">COBRANÇAS</p><h2>Faturas</h2></div></div><table class="invoice-table"><thead><tr><th>Endereço</th><th>Cliente</th><th>Referência</th><th>Consumo</th><th>Desconto</th><th>50% cobrado</th><th>Outros 50%</th><th>Valor final</th><th>Origem</th><th>Status</th><th>Ações</th></tr></thead><tbody id="invoicesBody"></tbody></table></article>
-  </section>
-
-  <section id="creditos" class="page"><div class="credits-hero"><div><p class="eyebrow">GESTÃO DE CRÉDITOS</p><h2>Usinas e Créditos de Energia</h2><p class="muted">Acompanhe os kWh produzidos, o consumo das faturas importadas e o saldo disponível.</p></div><span class="badge warn">ATUALIZAÇÃO MANUAL</span></div><div class="credits-stats"><article class="metric"><small>Créditos produzidos</small><strong id="creditProduced">0,00 kWh</strong><span>Soma das duas usinas</span></article><article class="metric"><small>Créditos utilizados</small><strong id="creditUsed">0,00 kWh</strong><span>Consumo das faturas</span></article><article class="metric"><small>Saldo de créditos</small><strong id="creditBalance">0,00 kWh</strong><span>Produzido - utilizado</span></article><article class="metric"><small>Aproveitamento</small><strong id="creditUseRate">0,0%</strong><span>Percentual já utilizado</span></article></div><div class="plant-grid" id="plantGrid"></div><article class="card credits-info"><div><p class="eyebrow">INTEGRAÇÃO SOLARZ</p><h2>Preparado para sincronização automática</h2><p class="muted">Nesta versão HTML local, informe a produção manualmente. A integração automática requer backend.</p></div><button class="btn" id="refreshCredits" type="button">Recalcular saldo</button></article></section>
-
-  <section id="automacao" class="page"><div class="cols"><article class="card"><div class="card-head"><div><p class="eyebrow">ROBÔ MENSAL</p><h2>Central de automação</h2></div><button id="runAuto" class="btn primary">Executar agora</button></div><div class="auto-status"><div><span class="badge ok">ATIVO</span><b>Monitor de PDFs</b><small>Processa PDFs enviados enquanto a página está aberta.</small></div><div><span class="badge info">OPCIONAL</span><b>Fatura digital por e-mail</b><small>Requer backend.</small></div><div><span class="badge warn">AGUARDANDO INTEGRAÇÃO</span><b>Portal Neoenergia</b><small>Exige backend/API autorizada.</small></div></div><div id="autoResult"></div></article><article class="card"><p class="eyebrow">ÚLTIMAS EXECUÇÕES</p><h2>Logs</h2><div id="logs" class="logs"></div></article></div></section>
-
-  <section id="config" class="page"><article class="card narrow"><p class="eyebrow">LUZSOLAR BRASIL</p><h2>Configurações</h2><form id="settingsForm" class="form"><label>Desconto padrão (%)<input id="defaultDiscount" type="number" step="0.01" min="0" max="100" placeholder="Deixe vazio para revisar"></label><label>Percentual da taxa Coelba somado ao cliente<input id="defaultShare" type="number" step="0.01" min="50" max="50" value="50" readonly></label><label class="check"><input id="autoClients" type="checkbox"> Criar clientes automaticamente pelo PDF</label><label class="check"><input id="autoEnabled" type="checkbox"> Simular verificação automática</label><label>Agendamento (cron)<input id="cron" placeholder="0 8 * * *"><small>Exemplo: 0 8 * * * = todos os dias às 08:00</small></label><label class="check"><input id="emailEnabled" type="checkbox"> Habilitar busca por e-mail (requer backend)</label><button class="btn primary">Salvar configurações</button></form></article></section>
-</main>
-
-<div id="modal" class="modal"><div class="modal-card"><button class="x" onclick="closeModal()">×</button><h2 id="modalTitle">Cliente</h2><form id="clientForm" class="form grid"><input id="cid" type="hidden"><label class="wide">Nome<input id="cname" required></label><label>Código instalação<input id="cinst"></label><label>Código cliente<input id="ccode"></label><label>Telefone<input id="cphone"></label><label>E-mail<input id="cemail" type="email"></label><label>Desconto padrão (%)<input id="cdiscount" type="number" step="0.01"></label><label>% da taxa Coelba somada ao cliente<input id="cshare" type="number" step="0.01" value="50" readonly></label><label class="wide">Unidade/local<input id="cunit"></label><label class="wide">Endereço<input id="caddress"></label><button class="btn primary wide">Salvar cliente</button></form></div></div>
-<div id="reviewModal" class="modal"><div class="modal-card wide-modal"><button class="x" onclick="closeReview()">×</button><p class="eyebrow">REVISÃO DA FATURA</p><h2>Confirme os dados e o desconto</h2><form id="reviewForm" class="form grid"><input id="rid" type="hidden"><label>Leitura anterior<input id="rprev" type="number" step="0.01"></label><label>Leitura atual<input id="rcurr" type="number" step="0.01"></label><label>TUSD<input id="rtusd" type="number" step="0.00000001"></label><label>TE<input id="rte" type="number" step="0.00000001"></label><label>Total da conta<input id="rbill" type="number" step="0.01"></label><label>Desconto (%)<input id="rdisc" type="number" step="0.01" required></label><label>% da taxa Coelba somada ao cliente<input id="rshare" type="number" step="0.01" value="50" readonly></label><div class="wide livecalc" id="liveCalc"></div><button class="btn primary wide">Calcular e confirmar</button></form></div></div>
-<div id="invoiceModal" class="modal"><div class="modal-card invoice-modal-card"><button class="x" onclick="closeInvoice()">×</button><div class="invoice-actions"><button class="btn" onclick="closeInvoice()">Fechar</button><button class="btn primary" onclick="downloadCurrentInvoice()">⬇ Baixar fatura em PDF</button></div><div id="invoicePaper"></div></div></div>
-<div id="toast" class="toast"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script type="module">import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"; pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs"; window.pdfjsLib=pdfjsLib;</script>
-<script src="app.js"></script>
-</body></html>
+  <a class="floating-wa" href="https://wa.me/5575983056912?text=Olá%2C%20gostaria%20de%20uma%20simulação%20de%20energia%20solar." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WA</a>
+  <script src="script.js"></script>
+</body>
+</html>
